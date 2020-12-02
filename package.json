@@ -20,8 +20,6 @@
     "child_process": "^1.0.2",
     "discord-rich-presence": "^0.0.8",
     "events": "^3.2.0",
-    "itunes-bridge": "^0.6.4",
-    "local-itunes": "^0.4.0",
     "util": "^0.12.3"
   }
 }

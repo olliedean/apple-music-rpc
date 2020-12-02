@@ -25,7 +25,6 @@ function clearPresence(){
     instance: false,
   });
 }
-const isPlaying = execSync("/usr/bin/osascript -e 'tell application \"Music\" to player state as string'").includes('playing');
 function update(){
   var playerState = execSync("/usr/bin/osascript -e 'tell application \"Music\" to get player state'");
   playerState = `${playerState}`;
