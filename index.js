@@ -1,4 +1,4 @@
-const rpc = require('discord-rich-presence')('268476229479301120');
+const rpc = require('discord-rich-presence')('783728735278858253');
 const { execSync } = require('child_process');
 
 function grabData(){
