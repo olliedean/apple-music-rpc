@@ -13,6 +13,7 @@ function grabData(){
 
 	return this;
 }
+
 function updatePresence(paused, details){
 	rpc.updatePresence({
 		state: `${(config.emojis ? "🎧 " : "")}${details.track}`,
@@ -26,6 +27,7 @@ function updatePresence(paused, details){
 	});
 	currentSong = `${details.artist} - ${details.track}`;
 }
+
 function clearPresence(){
 	// Still need to figure this out.
 }
@@ -37,11 +39,9 @@ function update(){
 	if(playerState.includes("paused")){
 		details = grabData(); 
 		updatePresence(true, details);
-	}
-	else if(playerState.includes("stopped")){
+	} else if(playerState.includes("stopped")){
 		if(rpc){  clearPresence() };
-	}
-	else if(playerState.includes("playing")){
+	} else if(playerState.includes("playing")){
 		details = grabData();
 		if(parseInt(details.position) > currentPosition + 5 ||
 			parseInt(details.position) < currentPosition - 5){
@@ -50,10 +50,11 @@ function update(){
 		currentPosition = parseInt(details.position);
 		if(currentSong === `${details.artist} - ${details.track}`) return;
 		updatePresence(false, details);
-	}
-	else{
+	} else{
 		if(rpc){ clearPresence(); }
 	}
 }
 
-setInterval( function(){ update(); }, 2000);
+setInterval(() => {
+  update();
+}, 2000)
